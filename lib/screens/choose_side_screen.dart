@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/screens/game_screen.dart';
 
 class ChooseSideScreen extends StatefulWidget {
   final bool isAi;
@@ -70,6 +71,34 @@ class _ChooseSideScreenState extends State<ChooseSideScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 50,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(200,50),
+                backgroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: 10),
+                elevation: 10,
+                shadowColor: Colors.grey,
+              ),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context)=> GameScreen(
+                      playerSide: selectedSide,
+                      isAi: widget.isAi
+                    )
+                    )
+                  );
+              }, 
+              child: Text(
+                "Continuar",
+                style: TextStyle(
+                  fontSize:24,
+                  color: Colors.black54,
+                ),
+              )
+              )
           ],
         ),
       ),
